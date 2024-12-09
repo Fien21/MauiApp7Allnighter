@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp7Allnighter.MainPage"
+             Title="Student Section">
+    <Grid Padding="5" RowSpacing="5" ColumnSpacing="5"
+          RowDefinitions="Auto, Auto, Auto, Auto, *">
+        <!-- Entry for new student name -->
+        <Entry x:Name="newStudent" Placeholder="Enter name" Grid.Row="0" />
+
+        <!-- Buttons -->
+        <Button Text="Add Student" Clicked="OnNewButtonClicked" Grid.Row="1" />
+        <Button Text="Get Local Students" Clicked="OnGetButtonClicked" Grid.Row="2" />
+        <Button Text="Fetch Students (Web)" Clicked="OnFetchStudentsClicked" Grid.Row="3" />
+
+        <!-- Status Message -->
+        <Label x:Name="statusMessage" Grid.Row="4" />
+
+        <!-- List of students -->
+        <CollectionView x:Name="sectionList" Grid.Row="5">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,2*">
+                        <Label Text="{Binding Id}" />
+                        <Label Grid.Column="1" Text="{Binding Name}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
